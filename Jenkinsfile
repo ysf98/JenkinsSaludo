@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(persona_a_saludar: 'Juan')
+        string(name: 'persona_a_saludar')
     }
     stages{
       stage('execution') {
