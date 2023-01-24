@@ -6,7 +6,7 @@ pipeline {
     stages{
       stage('execution') {
           steps{
-             sh 'index.js'
+             sh 'npm run index.js'
           }
       }
     }
