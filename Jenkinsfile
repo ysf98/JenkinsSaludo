@@ -6,7 +6,7 @@ pipeline {
     stages{
       stage('execution') {
           steps{
-             sh '/index'
+             sh './index'
           }
       }
     }
