@@ -10,19 +10,14 @@ pipeline {
             }
         }
       stage('Parallel') {
-          parallel {
-              stage('Parallel 1') {
-                  steps {
-                      echo "Hola mundo 1"
-                    }
+          parallel(
+                a: {
+                    echo "Hola 1"
+                },
+                b: {
+                    echo "Hola 2"
                 }
-
-              stage('Parallel 2') {
-                  steps {
-                      echo "Hola mundo 2"
-                    }
-                }
-            }
+            )
         }
     }
 }  
