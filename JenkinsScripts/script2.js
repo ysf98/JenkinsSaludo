@@ -1,0 +1,1 @@
+return $env.SALIDA2(console.log("Parametro recibido" + $parametro2));

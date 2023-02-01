@@ -1,31 +1,25 @@
 pipeline {
     agent any
-    triggers {
-        cron('H/05 * * * *')
-    }
     parameters {
-        string(name: 'persona_a_saludar')
+        string(name: 'parametro1')
+        string(name: 'parametro2')
     }
     stages{
-      stage('execution') {
+      stage('stage1') {
           steps{
-             sh 'node index'
+             sh 'node /JenkinsScripts/script1 ${params.parametro1}'
             }
         }
-      stage('Parallel') {
-          parallel {
-              stage('Parallel 1') {
-                  steps {
-                      echo "Hola mundo 1"
-                    }
-                }
-
-              stage('Parallel 2') {
-                  steps {
-                      echo "Hola mundo 2"
-                    }
-                }
+        stage('stage2') {
+          steps{
+             sh 'node /JenkinsScripts/script2 ${params.parametro2}'
             }
         }
+        stage('stage3') {
+          steps{
+             sh 'node /JenkinsScripts/script3 ${env.RESULTADO}'
+            }
+        }
+      
     }
 }  
